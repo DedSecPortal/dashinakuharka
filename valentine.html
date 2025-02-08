@@ -191,7 +191,6 @@
             }
         }
 
-
         @keyframes explodeHeart {
             0% {
                 transform: scale(1);
@@ -214,85 +213,6 @@
                 opacity: 0;
             }
         }
-
-        <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днём Святого Валентина!</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, #8A0707, #8A0707);
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        #secretButton {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #8A0707;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-            z-index: 100;
-        }
-
-        #secretButton:hover {
-            background-color: #8A0707;
-        }
-
-
-
-        #secretButton1 {
-            position: absolute;
-            top: 200px;
-            left: -123px;
-            background-color: #8A0707;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-            z-index: 100;
-        }
-
-        #info {
-            position: absolute;
-            top: 500px;
-            left: 1000px;
-            background-color: #f10366;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-            z-index: 100;
-        }
-
-        #info:hover {
-            background-color: #34e906;
-        }
     </style>
 </head>
 <body>
@@ -301,9 +221,9 @@
         <div class="heart"></div>
         <div class="message">С Днём Святого Валентина!</div>
         <div class="sub-message">Ты - самое прекрасное, что есть в моей жизни ❤️</div>
-        <button id="secretButton"></button>
-        <button id="secretButton1"></button>
-        <button id="info"></button>
+        <button id="secretButton">Музыка 1</button>
+        <button id="secretButton1">Музыка 2</button>
+        <button id="info">Инфо</button>
     </div>
 
     <script>
@@ -458,53 +378,52 @@
         });
 
         setInterval(createFloatingHearts, 300);
-    setInterval(createMusicNote, 5000);
-    setInterval(createButterfly, 8000);
+        setInterval(createMusicNote, 5000);
+        setInterval(createButterfly, 8000);
 
-    let isPlaying1 = false;
-    let audio1 = new Audio('sound.mp3');
+        let isPlaying1 = false;
+        let audio1 = new Audio('sound.mp3');
 
-    document.getElementById('secretButton').onclick = () => {
-        if (isPlaying1) {
-            audio1.pause();
-            audio1.currentTime = 0; // Сбросить время воспроизведения
-        } else {
-            audio1.play()
-                .then(() => {
-                    isPlaying1 = true;
-                })
-                .catch((error) => {
-                    console.warn('Ошибка воспроизведения звука:', error);
-                    alert('Не удалось запустить музыку. Возможно, браузер блокирует воспроизведение.');
-                });
-        }
-        isPlaying1 = !isPlaying1;
-    };
+        document.getElementById('secretButton').onclick = () => {
+            if (isPlaying1) {
+                audio1.pause();
+                audio1.currentTime = 0; // Сбросить время воспроизведения
+            } else {
+                audio1.play()
+                    .then(() => {
+                        isPlaying1 = true;
+                    })
+                    .catch((error) => {
+                        console.warn('Ошибка воспроизведения звука:', error);
+                        alert('Не удалось запустить музыку. Возможно, браузер блокирует воспроизведение.');
+                    });
+            }
+            isPlaying1 = !isPlaying1;
+        };
 
-    let isPlaying2 = false;
-    let audio2 = new Audio('sound1.mp3');
+        let isPlaying2 = false;
+        let audio2 = new Audio('sound1.mp3');
 
-    document.getElementById('secretButton1').onclick = () => {
-        if (isPlaying2) {
-            audio2.pause();
-            audio2.currentTime = 0; // Сбросить время воспроизведения
-        } else {
-            audio2.play()
-                .then(() => {
-                    isPlaying2 = true;
-                })
-                .catch((error) => {
-                    console.warn('Ошибка воспроизведения звука:', error);
-                    alert('Не удалось запустить музыку. Возможно, браузер блокирует воспроизведение.');
-                });
-        }
-        isPlaying2 = !isPlaying2;
-    };
+        document.getElementById('secretButton1').onclick = () => {
+            if (isPlaying2) {
+                audio2.pause();
+                audio2.currentTime = 0; // Сбросить время воспроизведения
+            } else {
+                audio2.play()
+                    .then(() => {
+                        isPlaying2 = true;
+                    })
+                    .catch((error) => {
+                        console.warn('Ошибка воспроизведения звука:', error);
+                        alert('Не удалось запустить музыку. Возможно, браузер блокирует воспроизведение.');
+                    });
+            }
+            isPlaying2 = !isPlaying2;
+        };
 
-    document.getElementById('info').onclick = () => {
-        alert('Спомощью белого круга вокруг твоего курсора ты можешь найти все остальные кнопки, их всего 2.');
-    };
-</script>
-
+        document.getElementById('info').onclick = () => {
+            alert('С помощью белого круга вокруг твоего курсора ты можешь найти все остальные кнопки, их всего 2.');
+        };
+    </script>
 </body>
 </html>
